@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Katechaki 20, Thessaloniki · Maria Filoglou, Real Estate Consultant">
+<meta property="og:type" content="website">
+<meta property="og:title" content="K House · Available apartments">
+<meta property="og:description" content="Katechaki 20, Thessaloniki · Maria Filoglou, Real Estate Consultant">
+<meta property="og:url" content="https://mariafiloglou-cart.github.io/karta/khouse/en/">
+<meta property="og:image" content="https://mariafiloglou-cart.github.io/karta/assets/0ded295e996a.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/0ded295e996a.jpg">
+</head>
+<body>
+<title>K House · Availability</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Noto+Serif+Display:ital,wght@0,500;1,400&display=swap">
+<style>
+/* Layout: one mobile column. Sea-toned hero band, facts, availability list, agent block, sticky WhatsApp/Viber bar */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --fg:#14232b; --muted:#5d6e73; --line:#dde5e3;
+  --sea:#1d4e63; --sage:#5f8a6e; --sage-soft:#e6efe8; --warn:#9a6a1c; --warn-soft:#f6ecd9;
+  --sold:#8b959a; --hero-a:#1d4e63; --hero-b:#3f7a68; --on-accent:#ffffff; --wa:#1f7a4d;
+  --display:"Noto Serif Display", Georgia, "Times New Roman", serif;
+  --body:"Commissioner", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f181c; --surface:#16232a; --fg:#e7eeec; --muted:#9aaaae; --line:#26363d;
+  --sea:#7fb6cc; --sage:#8fbf9c; --sage-soft:#1d3127; --warn:#e0b468; --warn-soft:#33291a;
+  --sold:#6b777c; --hero-a:#143846; --hero-b:#24503f; --on-accent:#0f181c; --wa:#5cc28f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f181c; --surface:#16232a; --fg:#e7eeec; --muted:#9aaaae; --line:#26363d;
+  --sea:#7fb6cc; --sage:#8fbf9c; --sage-soft:#1d3127; --warn:#e0b468; --warn-soft:#33291a;
+  --sold:#6b777c; --hero-a:#143846; --hero-b:#24503f; --on-accent:#0f181c; --wa:#5cc28f; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:14px 120px}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.top{display:flex;justify-content:flex-end}
+.lang{font-size:14px;font-weight:600;color:var(--sea);text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px}
+
+.hero{border-radius:18px;overflow:hidden;color:#fff;position:relative;
+  background:linear-gradient(160deg,var(--hero-a) 0%,var(--hero-b) 100%)}
+.hero svg.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:55%;opacity:.22}
+.hero-in{position:relative;padding:72px 20px 22px;display:flex;flex-direction:column;gap:6px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.88}
+h1{font-family:var(--display);font-weight:500;font-size:38px;line-height:1.08;margin:0;text-wrap:balance}
+.loc{margin:0;opacity:.92}
+
+.hero.has-photo{min-height:340px;display:flex;align-items:flex-end}
+.hero.has-photo .waves{display:none}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,26,0) 35%,rgba(8,20,26,.82) 100%)}
+.hero.has-photo .hero-in{z-index:1;width:100%;padding-top:120px}
+.gallery{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -2px;padding-bottom:4px}
+.gallery img{flex:none;width:82%;max-width:420px;aspect-ratio:16/10;object-fit:cover;border-radius:14px;scroll-snap-align:start}
+.intro{margin:0;font-size:17px;line-height:1.55;max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted)}
+
+h2{font-family:var(--display);font-weight:500;font-size:24px;margin:0;text-wrap:balance}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:4px 12px;flex-wrap:wrap}
+.updated,.summary{font-size:14px;color:var(--muted)}
+.summary{margin:-4px 0 0;font-variant-numeric:tabular-nums}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);
+  border-radius:999px;padding:7px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:var(--on-accent)}
+
+.units{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.unit{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:16px;border-top:1px solid var(--line)}
+.units .unit:first-child,.units .unit.first{border-top:0}
+.u-main{min-width:0;font-weight:600;font-size:17px}
+.u-meta{grid-column:1;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.u-req{font-size:14px;font-weight:600;color:var(--muted)}
+.u-extra{grid-column:1;font-size:13px;color:var(--sage)}
+.u-price{grid-row:1;grid-column:2;text-align:right;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.chip{grid-row:2;grid-column:2;justify-self:end;align-self:start;font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.chip.ok{background:var(--sage-soft);color:var(--sage)}
+.chip.hold{background:var(--warn-soft);color:var(--warn)}
+.chip.sold{background:transparent;color:var(--sold);border:1px solid var(--line)}
+.unit.sold .u-main,.unit.sold .u-meta{color:var(--sold)}
+.u-ask{grid-column:1 / -1;justify-self:start;margin-top:6px;font-size:14px;font-weight:600;color:var(--wa);text-decoration:none;
+  border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.empty{padding:18px;color:var(--muted)}
+.unit[hidden],.empty[hidden]{display:none}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:600;font-size:16px;
+  text-decoration:none;border-radius:14px;padding:14px 16px;cursor:pointer;border:1px solid var(--sea);min-width:0}
+.btn-outline{background:var(--surface);color:var(--sea)}
+.btn svg{width:20px;height:20px;flex:none}
+.note{font-size:13px;color:var(--muted);margin:6px 0 0;text-align:center}
+
+.sister{display:grid;gap:2px;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.sister span{font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.sister b{font-family:var(--display);font-weight:500;font-size:22px;color:var(--sea)}
+.sister .sister-addr{text-transform:none;letter-spacing:0;font-size:14px}
+
+.agent{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.avatar{width:64px;height:64px;border-radius:50%;flex:none;object-fit:cover}
+.agent p{margin:0}
+.agent .name{font-weight:700;font-size:17px}
+.agent .role{font-size:14px;color:var(--muted)}
+.phone-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
+.phone{font-weight:600;font-variant-numeric:tabular-nums;user-select:all}
+.copy{font:inherit;font-size:13px;font-weight:600;color:var(--sea);background:transparent;border:1px solid var(--line);border-radius:999px;padding:3px 10px;cursor:pointer}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.bar-in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bar .btn{padding:13px 10px}
+.btn-wa{background:var(--wa);border-color:var(--wa);color:var(--on-accent)}
+.btn-viber{background:var(--sea);color:var(--on-accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+footer{font-size:12px;color:var(--muted);text-align:center}
+</style>
+
+<div class="wrap" lang="en">
+  <div class="top"><a class="lang" href="../../khouse/" target="_blank" rel="noopener">Ελληνικά</a></div>
+
+  <section class="hero has-photo">
+    <img class="hero-photo" alt="K House" src="../../assets/0ded295e996a.jpg">
+    <svg class="waves" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 40 Q50 20 100 40 T200 40 T300 40 T400 40 V120 H0Z" fill="#ffffff" fill-opacity=".35"/>
+      <path d="M0 70 Q50 50 100 70 T200 70 T300 70 T400 70 V120 H0Z" fill="#ffffff" fill-opacity=".45"/>
+      <path d="M0 98 Q50 82 100 98 T200 98 T300 98 T400 98 V120 H0Z" fill="#ffffff" fill-opacity=".6"/>
+    </svg>
+    <div class="hero-in">
+      <span class="eyebrow">New build · Studio apartments</span>
+      <h1>K House</h1>
+      <p class="loc">Katechaki 20, Thessaloniki</p>
+    </div>
+  </section>
+
+  <p class="intro">Studio apartments on the ground floor and 4 levels. Ideal for young couples, professionals, students or as an investment.</p>
+  <div class="facts"><span>Studio apartments</span><span>Ideal for investment</span><span>Modern energy-efficient systems</span><span>Delivery June 2027</span></div>
+  <div class="gallery"><img alt="K House" src="../../assets/ffbfc27fb84d.jpg" loading="lazy"><img alt="K House" src="../../assets/b5a9fda99bcb.jpg" loading="lazy"></div>
+
+  <section style="display:flex;flex-direction:column;gap:12px">
+    <div class="head">
+      <h2>Available apartments</h2>
+      <span class="updated">Updated: 18/11/2026</span>
+    </div>
+    <p class="summary">34 available of 42 · from €116,000</p>
+    <div class="filters" role="group">
+      <button type="button" id="f-ok" data-f="ok" aria-pressed="true">Available</button>
+      <button type="button" id="f-all" data-f="all" aria-pressed="false">All</button>
+    </div>
+    <ul class="units" id="units">
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.1</span>
+  <span class="u-price">€185,000</span>
+  <span class="u-meta">57.27 m² net · 66.16 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.1." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.2</span>
+  <span class="u-price">€146,000</span>
+  <span class="u-meta">42.87 m² net · 49.52 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.2." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.3</span>
+  <span class="u-price">€128,000</span>
+  <span class="u-meta">37.97 m² net · 43.86 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.3." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.4</span>
+  <span class="u-price">€146,000</span>
+  <span class="u-meta">39.88 m² net · 46.07 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.4." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.5</span>
+  <span class="u-price">€157,000</span>
+  <span class="u-meta">44.44 m² net · 51.34 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.5." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.6</span>
+  <span class="u-price">€127,000</span>
+  <span class="u-meta">35.24 m² net · 40.71 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.6." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.7</span>
+  <span class="u-price">€133,000</span>
+  <span class="u-meta">39.26 m² net · 45.35 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.7." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.8</span>
+  <span class="u-price">€178,000</span>
+  <span class="u-meta">50.87 m² net · 58.77 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.8." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ground floor · Apt. ΙΣ.9</span>
+  <span class="u-price">€231,000</span>
+  <span class="u-meta">67.12 m² net · 77.54 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%99%CE%A3.9." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">1st floor · Apt. Α.1</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">40.17 m² net · 46.41 gross</span>
+  <span class="chip sold">Sold</span>
+  
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1st floor · Apt. Α.2</span>
+  <span class="u-price">€154,000</span>
+  <span class="u-meta">41.85 m² net · 48.35 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%91.2." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">1st floor · Apt. Α.3</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">36.48 m² net · 42.14 gross</span>
+  <span class="chip sold">Sold</span>
+  
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1st floor · Apt. Α.4</span>
+  <span class="u-price">€144,000</span>
+  <span class="u-meta">37.25 m² net · 43.03 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%91.4." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1st floor · Apt. Α.5</span>
+  <span class="u-price">€155,000</span>
+  <span class="u-meta">40.02 m² net · 46.23 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%91.5." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1st floor · Apt. Α.6</span>
+  <span class="u-price">€149,000</span>
+  <span class="u-meta">39.29 m² net · 45.39 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%91.6." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1st floor · Apt. Α.7</span>
+  <span class="u-price">€116,000</span>
+  <span class="u-meta">29.53 m² net · 34.11 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%91.7." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1st floor · Apt. Α.8</span>
+  <span class="u-price">€121,000</span>
+  <span class="u-meta">32.25 m² net · 37.26 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%91.8." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1st floor · Apt. Α.9</span>
+  <span class="u-price">€163,000</span>
+  <span class="u-meta">44.20 m² net · 51.06 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%91.9." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1st floor · Apt. Α.10</span>
+  <span class="u-price">€208,000</span>
+  <span class="u-meta">56.47 m² net · 65.24 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%91.10." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">2nd floor · Apt. Β.1</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">40.17 m² net · 46.41 gross</span>
+  <span class="chip sold">Sold</span>
+  
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.2</span>
+  <span class="u-price">€159,000</span>
+  <span class="u-meta">41.85 m² net · 48.35 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.2." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.3</span>
+  <span class="u-price">€134,000</span>
+  <span class="u-meta">36.48 m² net · 42.14 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.3." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.4</span>
+  <span class="u-price">€149,000</span>
+  <span class="u-meta">37.25 m² net · 43.03 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.4." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.5</span>
+  <span class="u-price">€160,000</span>
+  <span class="u-meta">40.02 m² net · 46.23 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.5." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.6</span>
+  <span class="u-price">€154,000</span>
+  <span class="u-meta">39.29 m² net · 45.39 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.6." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.7</span>
+  <span class="u-price">€119,000</span>
+  <span class="u-meta">29.53 m² net · 34.11 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.7." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.8</span>
+  <span class="u-price">€125,000</span>
+  <span class="u-meta">32.25 m² net · 37.26 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.8." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.9</span>
+  <span class="u-price">€168,000</span>
+  <span class="u-meta">44.20 m² net · 51.06 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.9." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2nd floor · Apt. Β.10</span>
+  <span class="u-price">€214,000</span>
+  <span class="u-meta">56.47 m² net · 65.24 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%92.10." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">3rd floor · Apt. Γ.1</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">40.17 m² net · 46.41 gross</span>
+  <span class="chip sold">Sold</span>
+  
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3rd floor · Apt. Γ.2</span>
+  <span class="u-price">€163,000</span>
+  <span class="u-meta">41.85 m² net · 48.35 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%93.2." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3rd floor · Apt. Γ.3</span>
+  <span class="u-price">€138,000</span>
+  <span class="u-meta">36.48 m² net · 42.14 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%93.3." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3rd floor · Apt. Γ.4</span>
+  <span class="u-price">€153,000</span>
+  <span class="u-meta">37.25 m² net · 43.03 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%93.4." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3rd floor · Apt. Γ.5</span>
+  <span class="u-price">€165,000</span>
+  <span class="u-meta">40.02 m² net · 46.23 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%93.5." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3rd floor · Apt. Γ.6</span>
+  <span class="u-price">€158,000</span>
+  <span class="u-meta">39.29 m² net · 45.39 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%93.6." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3rd floor · Apt. Γ.7</span>
+  <span class="u-price">€123,000</span>
+  <span class="u-meta">29.53 m² net · 34.11 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%93.7." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3rd floor · Apt. Γ.8</span>
+  <span class="u-price">€128,000</span>
+  <span class="u-meta">32.25 m² net · 37.26 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%93.8." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3rd floor · Apt. Γ.9</span>
+  <span class="u-price">€174,000</span>
+  <span class="u-meta">44.20 m² net · 51.06 gross</span>
+  <span class="chip ok">Available</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%93.9." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">3rd floor · Apt. Γ.10</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">56.47 m² net · 65.24 gross</span>
+  <span class="chip sold">Sold</span>
+  
+</li>
+<li class="unit hold" data-st="hold">
+  <span class="u-main">4th floor · Apt. Δ.1</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">38.51 m² net · 44.48 gross</span>
+  <span class="chip hold">Under legal review</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%94.1." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">4th floor · Apt. Δ.2</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">37.36 m² net · 43.16 gross</span>
+  <span class="chip sold">Sold</span>
+  
+</li>
+<li class="unit hold" data-st="hold">
+  <span class="u-main">4th floor · Apt. Δ.3</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">37.51 m² net · 41.38 gross</span>
+  <span class="chip hold">Under legal review</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House%2C%20apartment%20%CE%94.3." target="_blank" rel="noopener">Ask me about it</a>
+</li>
+      <li class="empty" id="empty" hidden>No apartment is available right now. Send me a message and I'll let you know first.</li>
+    </ul>
+  </section>
+
+  <div>
+    <a class="btn btn-outline" href="https://wa.me/306977407660?text=Hello%20Maria%2C%20I%20would%20like%20the%20floor%20plans%20and%20specifications%20for%20K%20House." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h9V3M12 12v9"/></svg>
+      Request floor plans and specifications
+    </a>
+    <p class="note">I will send them to you on WhatsApp</p>
+  </div>
+
+  
+
+  <section class="agent" aria-label="Contact">
+    <img class="avatar" alt="Maria Filoglou" src="../../assets/f09ec9584e44.jpg">
+    <div style="min-width:0">
+      <p class="name">Maria Filoglou</p>
+      <p class="role">Real Estate Consultant · Bee Executive · VST Group</p>
+      <div class="phone-row"><span class="role">Mobile:</span> <span class="phone" id="phone">+30 697 740 7660</span>
+        <button class="copy" type="button" id="copy">Copy</button></div>
+    </div>
+  </section>
+
+  <footer>Prices and availability may change. Please contact me to confirm.</footer>
+</div>
+
+<nav class="bar" aria-label="Contact">
+  <div class="bar-in">
+    <a class="btn btn-wa" href="https://wa.me/306977407660?text=Hello%20Ms%20Filoglou%2C%20I%27m%20interested%20in%20K%20House." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6.2A8 8 0 1 1 21 12z"/></svg>
+      WhatsApp
+    </a>
+    <a class="btn btn-viber" href="viber://chat?number=%2B306977407660">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4z"/></svg>
+      Viber
+    </a>
+  </div>
+</nav>
+
+<script>
+const list = document.getElementById("units");
+const units = [...list.querySelectorAll(".unit")];
+function show(f){
+  let firstSet = false;
+  units.forEach(u => {
+    const vis = f === "all" || u.dataset.st !== "sold";
+    u.hidden = !vis; u.classList.remove("first");
+    if (vis && !firstSet){ u.classList.add("first"); firstSet = true; }
+  });
+  document.getElementById("empty").hidden = firstSet;
+  document.querySelectorAll(".filters button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === f));
+  try { localStorage.setItem("filter", f); } catch(e) {}
+}
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => show(b.dataset.f)));
+let start = "ok"; try { start = localStorage.getItem("filter") || "ok"; } catch(e) {}
+show(start);
+document.getElementById("copy").addEventListener("click", async e => {
+  const b = e.currentTarget, el = document.getElementById("phone");
+  try { await navigator.clipboard.writeText(el.textContent); }
+  catch(err){ const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1800);
+});
+</script>
+
+</body>
+</html>

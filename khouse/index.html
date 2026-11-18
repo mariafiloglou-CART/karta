@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Κατεχάκη 20, Θεσσαλονίκη · Μαρία Φίλογλου, Σύμβουλος Ακίνητης Περιουσίας">
+<meta property="og:type" content="website">
+<meta property="og:title" content="K House · Διαθέσιμα διαμερίσματα">
+<meta property="og:description" content="Κατεχάκη 20, Θεσσαλονίκη · Μαρία Φίλογλου, Σύμβουλος Ακίνητης Περιουσίας">
+<meta property="og:url" content="https://mariafiloglou-cart.github.io/karta/khouse/">
+<meta property="og:image" content="https://mariafiloglou-cart.github.io/karta/assets/0ded295e996a.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/0ded295e996a.jpg">
+</head>
+<body>
+<title>K House · Διαθέσιμα</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Noto+Serif+Display:ital,wght@0,500;1,400&display=swap">
+<style>
+/* Layout: one mobile column. Sea-toned hero band, facts, availability list, agent block, sticky WhatsApp/Viber bar */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --fg:#14232b; --muted:#5d6e73; --line:#dde5e3;
+  --sea:#1d4e63; --sage:#5f8a6e; --sage-soft:#e6efe8; --warn:#9a6a1c; --warn-soft:#f6ecd9;
+  --sold:#8b959a; --hero-a:#1d4e63; --hero-b:#3f7a68; --on-accent:#ffffff; --wa:#1f7a4d;
+  --display:"Noto Serif Display", Georgia, "Times New Roman", serif;
+  --body:"Commissioner", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f181c; --surface:#16232a; --fg:#e7eeec; --muted:#9aaaae; --line:#26363d;
+  --sea:#7fb6cc; --sage:#8fbf9c; --sage-soft:#1d3127; --warn:#e0b468; --warn-soft:#33291a;
+  --sold:#6b777c; --hero-a:#143846; --hero-b:#24503f; --on-accent:#0f181c; --wa:#5cc28f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f181c; --surface:#16232a; --fg:#e7eeec; --muted:#9aaaae; --line:#26363d;
+  --sea:#7fb6cc; --sage:#8fbf9c; --sage-soft:#1d3127; --warn:#e0b468; --warn-soft:#33291a;
+  --sold:#6b777c; --hero-a:#143846; --hero-b:#24503f; --on-accent:#0f181c; --wa:#5cc28f; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:14px 120px}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.top{display:flex;justify-content:flex-end}
+.lang{font-size:14px;font-weight:600;color:var(--sea);text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px}
+
+.hero{border-radius:18px;overflow:hidden;color:#fff;position:relative;
+  background:linear-gradient(160deg,var(--hero-a) 0%,var(--hero-b) 100%)}
+.hero svg.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:55%;opacity:.22}
+.hero-in{position:relative;padding:72px 20px 22px;display:flex;flex-direction:column;gap:6px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.88}
+h1{font-family:var(--display);font-weight:500;font-size:38px;line-height:1.08;margin:0;text-wrap:balance}
+.loc{margin:0;opacity:.92}
+
+.hero.has-photo{min-height:340px;display:flex;align-items:flex-end}
+.hero.has-photo .waves{display:none}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,26,0) 35%,rgba(8,20,26,.82) 100%)}
+.hero.has-photo .hero-in{z-index:1;width:100%;padding-top:120px}
+.gallery{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -2px;padding-bottom:4px}
+.gallery img{flex:none;width:82%;max-width:420px;aspect-ratio:16/10;object-fit:cover;border-radius:14px;scroll-snap-align:start}
+.intro{margin:0;font-size:17px;line-height:1.55;max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted)}
+
+h2{font-family:var(--display);font-weight:500;font-size:24px;margin:0;text-wrap:balance}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:4px 12px;flex-wrap:wrap}
+.updated,.summary{font-size:14px;color:var(--muted)}
+.summary{margin:-4px 0 0;font-variant-numeric:tabular-nums}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);
+  border-radius:999px;padding:7px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:var(--on-accent)}
+
+.units{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.unit{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:16px;border-top:1px solid var(--line)}
+.units .unit:first-child,.units .unit.first{border-top:0}
+.u-main{min-width:0;font-weight:600;font-size:17px}
+.u-meta{grid-column:1;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.u-req{font-size:14px;font-weight:600;color:var(--muted)}
+.u-extra{grid-column:1;font-size:13px;color:var(--sage)}
+.u-price{grid-row:1;grid-column:2;text-align:right;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.chip{grid-row:2;grid-column:2;justify-self:end;align-self:start;font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.chip.ok{background:var(--sage-soft);color:var(--sage)}
+.chip.hold{background:var(--warn-soft);color:var(--warn)}
+.chip.sold{background:transparent;color:var(--sold);border:1px solid var(--line)}
+.unit.sold .u-main,.unit.sold .u-meta{color:var(--sold)}
+.u-ask{grid-column:1 / -1;justify-self:start;margin-top:6px;font-size:14px;font-weight:600;color:var(--wa);text-decoration:none;
+  border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.empty{padding:18px;color:var(--muted)}
+.unit[hidden],.empty[hidden]{display:none}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:600;font-size:16px;
+  text-decoration:none;border-radius:14px;padding:14px 16px;cursor:pointer;border:1px solid var(--sea);min-width:0}
+.btn-outline{background:var(--surface);color:var(--sea)}
+.btn svg{width:20px;height:20px;flex:none}
+.note{font-size:13px;color:var(--muted);margin:6px 0 0;text-align:center}
+
+.sister{display:grid;gap:2px;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.sister span{font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.sister b{font-family:var(--display);font-weight:500;font-size:22px;color:var(--sea)}
+.sister .sister-addr{text-transform:none;letter-spacing:0;font-size:14px}
+
+.agent{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.avatar{width:64px;height:64px;border-radius:50%;flex:none;object-fit:cover}
+.agent p{margin:0}
+.agent .name{font-weight:700;font-size:17px}
+.agent .role{font-size:14px;color:var(--muted)}
+.phone-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
+.phone{font-weight:600;font-variant-numeric:tabular-nums;user-select:all}
+.copy{font:inherit;font-size:13px;font-weight:600;color:var(--sea);background:transparent;border:1px solid var(--line);border-radius:999px;padding:3px 10px;cursor:pointer}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.bar-in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bar .btn{padding:13px 10px}
+.btn-wa{background:var(--wa);border-color:var(--wa);color:var(--on-accent)}
+.btn-viber{background:var(--sea);color:var(--on-accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+footer{font-size:12px;color:var(--muted);text-align:center}
+</style>
+
+<div class="wrap" lang="el">
+  <div class="top"><a class="lang" href="../khouse/en/" target="_blank" rel="noopener">English</a></div>
+
+  <section class="hero has-photo">
+    <img class="hero-photo" alt="K House" src="../assets/0ded295e996a.jpg">
+    <svg class="waves" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 40 Q50 20 100 40 T200 40 T300 40 T400 40 V120 H0Z" fill="#ffffff" fill-opacity=".35"/>
+      <path d="M0 70 Q50 50 100 70 T200 70 T300 70 T400 70 V120 H0Z" fill="#ffffff" fill-opacity=".45"/>
+      <path d="M0 98 Q50 82 100 98 T200 98 T300 98 T400 98 V120 H0Z" fill="#ffffff" fill-opacity=".6"/>
+    </svg>
+    <div class="hero-in">
+      <span class="eyebrow">Νέα κατασκευή · Γκαρσονιέρες &amp; studios</span>
+      <h1>K House</h1>
+      <p class="loc">Κατεχάκη 20, Θεσσαλονίκη</p>
+    </div>
+  </section>
+
+  <p class="intro">Studios και γκαρσονιέρες σε ισόγειο και 4 επίπεδα. Ιδανικά για νέα ζευγάρια, επαγγελματίες, φοιτητές ή για επένδυση.</p>
+  <div class="facts"><span>Studios &amp; γκαρσονιέρες</span><span>Ιδανικό για επένδυση</span><span>Σύγχρονα συστήματα ενεργειακής απόδοσης</span><span>Παράδοση Ιούνιος 2027</span></div>
+  <div class="gallery"><img alt="K House" src="../assets/ffbfc27fb84d.jpg" loading="lazy"><img alt="K House" src="../assets/b5a9fda99bcb.jpg" loading="lazy"></div>
+
+  <section style="display:flex;flex-direction:column;gap:12px">
+    <div class="head">
+      <h2>Διαθέσιμα διαμερίσματα</h2>
+      <span class="updated">Ενημέρωση: 18/11/2026</span>
+    </div>
+    <p class="summary">34 διαθέσιμα από 42 · από 116.000 €</p>
+    <div class="filters" role="group">
+      <button type="button" id="f-ok" data-f="ok" aria-pressed="true">Διαθέσιμα</button>
+      <button type="button" id="f-all" data-f="all" aria-pressed="false">Όλα</button>
+    </div>
+    <ul class="units" id="units">
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.1</span>
+  <span class="u-price">185.000 €</span>
+  <span class="u-meta">57,27 τ.μ. καθαρά · 66,16 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.1." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.2</span>
+  <span class="u-price">146.000 €</span>
+  <span class="u-meta">42,87 τ.μ. καθαρά · 49,52 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.2." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.3</span>
+  <span class="u-price">128.000 €</span>
+  <span class="u-meta">37,97 τ.μ. καθαρά · 43,86 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.3." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.4</span>
+  <span class="u-price">146.000 €</span>
+  <span class="u-meta">39,88 τ.μ. καθαρά · 46,07 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.4." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.5</span>
+  <span class="u-price">157.000 €</span>
+  <span class="u-meta">44,44 τ.μ. καθαρά · 51,34 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.5." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.6</span>
+  <span class="u-price">127.000 €</span>
+  <span class="u-meta">35,24 τ.μ. καθαρά · 40,71 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.6." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.7</span>
+  <span class="u-price">133.000 €</span>
+  <span class="u-meta">39,26 τ.μ. καθαρά · 45,35 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.7." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.8</span>
+  <span class="u-price">178.000 €</span>
+  <span class="u-meta">50,87 τ.μ. καθαρά · 58,77 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.8." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">Ισόγειο · Διαμ. ΙΣ.9</span>
+  <span class="u-price">231.000 €</span>
+  <span class="u-meta">67,12 τ.μ. καθαρά · 77,54 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%99%CE%A3.9." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">1ος όροφος · Διαμ. Α.1</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">40,17 τ.μ. καθαρά · 46,41 μικτά</span>
+  <span class="chip sold">Πουλήθηκε</span>
+  
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1ος όροφος · Διαμ. Α.2</span>
+  <span class="u-price">154.000 €</span>
+  <span class="u-meta">41,85 τ.μ. καθαρά · 48,35 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%91.2." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">1ος όροφος · Διαμ. Α.3</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">36,48 τ.μ. καθαρά · 42,14 μικτά</span>
+  <span class="chip sold">Πουλήθηκε</span>
+  
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1ος όροφος · Διαμ. Α.4</span>
+  <span class="u-price">144.000 €</span>
+  <span class="u-meta">37,25 τ.μ. καθαρά · 43,03 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%91.4." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1ος όροφος · Διαμ. Α.5</span>
+  <span class="u-price">155.000 €</span>
+  <span class="u-meta">40,02 τ.μ. καθαρά · 46,23 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%91.5." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1ος όροφος · Διαμ. Α.6</span>
+  <span class="u-price">149.000 €</span>
+  <span class="u-meta">39,29 τ.μ. καθαρά · 45,39 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%91.6." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1ος όροφος · Διαμ. Α.7</span>
+  <span class="u-price">116.000 €</span>
+  <span class="u-meta">29,53 τ.μ. καθαρά · 34,11 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%91.7." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1ος όροφος · Διαμ. Α.8</span>
+  <span class="u-price">121.000 €</span>
+  <span class="u-meta">32,25 τ.μ. καθαρά · 37,26 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%91.8." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1ος όροφος · Διαμ. Α.9</span>
+  <span class="u-price">163.000 €</span>
+  <span class="u-meta">44,20 τ.μ. καθαρά · 51,06 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%91.9." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">1ος όροφος · Διαμ. Α.10</span>
+  <span class="u-price">208.000 €</span>
+  <span class="u-meta">56,47 τ.μ. καθαρά · 65,24 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%91.10." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">2ος όροφος · Διαμ. Β.1</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">40,17 τ.μ. καθαρά · 46,41 μικτά</span>
+  <span class="chip sold">Πουλήθηκε</span>
+  
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.2</span>
+  <span class="u-price">159.000 €</span>
+  <span class="u-meta">41,85 τ.μ. καθαρά · 48,35 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.2." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.3</span>
+  <span class="u-price">134.000 €</span>
+  <span class="u-meta">36,48 τ.μ. καθαρά · 42,14 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.3." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.4</span>
+  <span class="u-price">149.000 €</span>
+  <span class="u-meta">37,25 τ.μ. καθαρά · 43,03 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.4." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.5</span>
+  <span class="u-price">160.000 €</span>
+  <span class="u-meta">40,02 τ.μ. καθαρά · 46,23 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.5." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.6</span>
+  <span class="u-price">154.000 €</span>
+  <span class="u-meta">39,29 τ.μ. καθαρά · 45,39 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.6." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.7</span>
+  <span class="u-price">119.000 €</span>
+  <span class="u-meta">29,53 τ.μ. καθαρά · 34,11 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.7." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.8</span>
+  <span class="u-price">125.000 €</span>
+  <span class="u-meta">32,25 τ.μ. καθαρά · 37,26 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.8." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.9</span>
+  <span class="u-price">168.000 €</span>
+  <span class="u-meta">44,20 τ.μ. καθαρά · 51,06 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.9." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">2ος όροφος · Διαμ. Β.10</span>
+  <span class="u-price">214.000 €</span>
+  <span class="u-meta">56,47 τ.μ. καθαρά · 65,24 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%92.10." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.1</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">40,17 τ.μ. καθαρά · 46,41 μικτά</span>
+  <span class="chip sold">Πουλήθηκε</span>
+  
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.2</span>
+  <span class="u-price">163.000 €</span>
+  <span class="u-meta">41,85 τ.μ. καθαρά · 48,35 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%93.2." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.3</span>
+  <span class="u-price">138.000 €</span>
+  <span class="u-meta">36,48 τ.μ. καθαρά · 42,14 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%93.3." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.4</span>
+  <span class="u-price">153.000 €</span>
+  <span class="u-meta">37,25 τ.μ. καθαρά · 43,03 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%93.4." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.5</span>
+  <span class="u-price">165.000 €</span>
+  <span class="u-meta">40,02 τ.μ. καθαρά · 46,23 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%93.5." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.6</span>
+  <span class="u-price">158.000 €</span>
+  <span class="u-meta">39,29 τ.μ. καθαρά · 45,39 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%93.6." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.7</span>
+  <span class="u-price">123.000 €</span>
+  <span class="u-meta">29,53 τ.μ. καθαρά · 34,11 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%93.7." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.8</span>
+  <span class="u-price">128.000 €</span>
+  <span class="u-meta">32,25 τ.μ. καθαρά · 37,26 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%93.8." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit ok" data-st="ok">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.9</span>
+  <span class="u-price">174.000 €</span>
+  <span class="u-meta">44,20 τ.μ. καθαρά · 51,06 μικτά</span>
+  <span class="chip ok">Διαθέσιμο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%93.9." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">3ος όροφος · Διαμ. Γ.10</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">56,47 τ.μ. καθαρά · 65,24 μικτά</span>
+  <span class="chip sold">Πουλήθηκε</span>
+  
+</li>
+<li class="unit hold" data-st="hold">
+  <span class="u-main">4ος όροφος · Διαμ. Δ.1</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">38,51 τ.μ. καθαρά · 44,48 μικτά</span>
+  <span class="chip hold">Υπό νομικό έλεγχο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%94.1." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+<li class="unit sold" data-st="sold">
+  <span class="u-main">4ος όροφος · Διαμ. Δ.2</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">37,36 τ.μ. καθαρά · 43,16 μικτά</span>
+  <span class="chip sold">Πουλήθηκε</span>
+  
+</li>
+<li class="unit hold" data-st="hold">
+  <span class="u-main">4ος όροφος · Διαμ. Δ.3</span>
+  <span class="u-price">&nbsp;</span>
+  <span class="u-meta">37,51 τ.μ. καθαρά · 41,38 μικτά</span>
+  <span class="chip hold">Υπό νομικό έλεγχο</span>
+  <a class="u-ask" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House%2C%20%CE%B4%CE%B9%CE%B1%CE%BC%CE%AD%CF%81%CE%B9%CF%83%CE%BC%CE%B1%20%CE%94.3." target="_blank" rel="noopener">Ρώτησέ με γι' αυτό</a>
+</li>
+      <li class="empty" id="empty" hidden>Δεν υπάρχει διαθέσιμο διαμέρισμα αυτή τη στιγμή. Στείλε μου μήνυμα να σε ενημερώσω πρώτη.</li>
+    </ul>
+  </section>
+
+  <div>
+    <a class="btn btn-outline" href="https://wa.me/306977407660?text=%CE%9A%CE%B1%CE%BB%CE%B7%CF%83%CF%80%CE%AD%CF%81%CE%B1%20%CE%9C%CE%B1%CF%81%CE%AF%CE%B1%2C%20%CE%B8%CE%B1%20%CE%AE%CE%B8%CE%B5%CE%BB%CE%B1%20%CE%BA%CE%B1%CF%84%CF%8C%CF%88%CE%B5%CE%B9%CF%82%20%CE%BA%CE%B1%CE%B9%20%CF%84%CE%B5%CF%87%CE%BD%CE%B9%CE%BA%CE%AC%20%CF%83%CF%84%CE%BF%CE%B9%CF%87%CE%B5%CE%AF%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20%CE%AD%CF%81%CE%B3%CE%BF%20K%20House." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h9V3M12 12v9"/></svg>
+      Ζήτα κατόψεις και τεχνικά στοιχεία
+    </a>
+    <p class="note">Σου τα στέλνω εγώ στο WhatsApp</p>
+  </div>
+
+  
+
+  <section class="agent" aria-label="Επικοινωνία">
+    <img class="avatar" alt="Μαρία Φίλογλου" src="../assets/f09ec9584e44.jpg">
+    <div style="min-width:0">
+      <p class="name">Μαρία Φίλογλου</p>
+      <p class="role">Σύμβουλος Ακίνητης Περιουσίας · Bee Executive · VST Group</p>
+      <div class="phone-row"><span class="role">Κινητό:</span> <span class="phone" id="phone">+30 697 740 7660</span>
+        <button class="copy" type="button" id="copy">Αντιγραφή</button></div>
+    </div>
+  </section>
+
+  <footer>Οι τιμές και η διαθεσιμότητα μπορεί να αλλάξουν. Επικοινώνησε μαζί μου για επιβεβαίωση.</footer>
+</div>
+
+<nav class="bar" aria-label="Επικοινωνία">
+  <div class="bar-in">
+    <a class="btn btn-wa" href="https://wa.me/306977407660?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BA%CE%B1%20%CE%A6%CE%AF%CE%BB%CE%BF%CE%B3%CE%BB%CE%BF%CF%85%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20K%20House." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6.2A8 8 0 1 1 21 12z"/></svg>
+      WhatsApp
+    </a>
+    <a class="btn btn-viber" href="viber://chat?number=%2B306977407660">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4z"/></svg>
+      Viber
+    </a>
+  </div>
+</nav>
+
+<script>
+const list = document.getElementById("units");
+const units = [...list.querySelectorAll(".unit")];
+function show(f){
+  let firstSet = false;
+  units.forEach(u => {
+    const vis = f === "all" || u.dataset.st !== "sold";
+    u.hidden = !vis; u.classList.remove("first");
+    if (vis && !firstSet){ u.classList.add("first"); firstSet = true; }
+  });
+  document.getElementById("empty").hidden = firstSet;
+  document.querySelectorAll(".filters button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === f));
+  try { localStorage.setItem("filter", f); } catch(e) {}
+}
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => show(b.dataset.f)));
+let start = "ok"; try { start = localStorage.getItem("filter") || "ok"; } catch(e) {}
+show(start);
+document.getElementById("copy").addEventListener("click", async e => {
+  const b = e.currentTarget, el = document.getElementById("phone");
+  try { await navigator.clipboard.writeText(el.textContent); }
+  catch(err){ const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  b.textContent = "Αντιγράφηκε"; setTimeout(() => b.textContent = "Αντιγραφή", 1800);
+});
+</script>
+
+</body>
+</html>
